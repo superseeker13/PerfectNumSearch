@@ -1,10 +1,11 @@
 import csv
 
-def generateEvenPNums(num):
-    generateEvenPNumsInRange(range(1, num+1))
 
-#Range(start, end, 2)
-def generateEvenPNumsInRange(rage):
+def generateEvenPNums(num) -> list:
+    return generateEvenPNumsInRange(range(1, num+1))
+
+
+def generateEvenPNumsInRange(rage) -> list:
     perfectList = list()
     for i in rage:
         print('i = ' + str(i))
@@ -14,19 +15,18 @@ def generateEvenPNumsInRange(rage):
             print('p, q = ', p, q)
             print(str(p*q) + ' is a perfect number.')
             perfectList.append(int(p*q))
-            
-    listToCsv(perfectList);
+    listToCsv(perfectList)
+    return perfectList
 
-def searchOddPNumsInRange(rage):
-    return   
 
 def isPrime(num) -> bool:
     if num == 2 or num == 3:
         return True
-    elif num % 2 == 0 or num % 3 == 0 or num % 5 == 0 or num <= 1:
+    elif num % 2 == 0 or num % 3 == 0 or num <= 1:
         return False
     else:
-        for i in [i for i in range(7, (int(num / 2) + 1), 2) if i % 3 != 0 or i % 5 != 0]:
+        gen = (i for i in range(7, (int(num / 2) + 1), 2) if i % 3 != 0)
+        for i in gen:
             if num % i == 0:
                 return False
     return True
@@ -34,5 +34,5 @@ def isPrime(num) -> bool:
 
 def listToCsv(myList, fileName='perfectNums.csv'):
     with open(fileName, 'w', newline='') as myfile:
-         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-         wr.writerow(myList)
+        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+        wr.writerow(myList)
