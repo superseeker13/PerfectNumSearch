@@ -1,3 +1,4 @@
+# Consider renaming file
 from csv import QUOTE_ALL, writer
 
 
@@ -11,8 +12,8 @@ def generateEvenPNumsInRange(rage) -> list:
     append = perfectList.append
     for i in rage:
         print('i = ' + str(i))
-        p = (2**i) - 1
-        if isPrime(p):
+        if isMPrime(i):
+            p = (2**i) - 1
             q = 2**(i-1)
             print('p, q = ', p, q)
             print(str(p*q) + ' is a perfect number.')
@@ -20,7 +21,18 @@ def generateEvenPNumsInRange(rage) -> list:
     listToCsv(perfectList)
     return perfectList
 
+# For Mersenne primes uses the Lucas-Lehmer Test:
+# Let n be an odd prime.
+# The Mersenne number M(n) = 2**n-1 is prime if and only if
+# S(n-2) = 0 (mod M(n)) where S(0) = 4 and S(k+1) = S(k)2-2.
+def isMPrime(p) -> bool:
+    s = 4
+    m = 2**p -1
+    for i in range(0, p-2):
+        s = (s**2 - 2) % m
+    return s == 0
 
+# For general non-special primes
 def isPrime(num) -> bool:
     if num == 2 or num == 3:
         return True
