@@ -8,12 +8,13 @@ def generateEvenPNums(num) -> list:
 
 
 def generateEvenPNumsInRange(rage) -> list:
+    startTime = datetime.datetime.now()
     perfectList = list()
     # Increases performace for large values
     append = perfectList.append
     for i in rage:
         date = datetime.datetime.now()
-        if isPrime(i) && isMPrime(i):
+        if isPrime(i) and isMPrime(i):
             p = (2**i) - 1
             q = 2**(i-1)
             print('Prime check time: ', datetime.datetime.now() - date)
@@ -21,6 +22,7 @@ def generateEvenPNumsInRange(rage) -> list:
             print(str(p*q) + ' is a perfect number.\n')
             append(int(p*q))
     listToCsv(perfectList)
+    print('Time to complete search:', datetime.datetime.now() - startTime)
     return perfectList
 
 # For Mersenne primes uses the Lucas-Lehmer Test:
