@@ -23,7 +23,18 @@ def generateEvenPNumsInRange(rage) -> list:
     listToCsv(perfectList)
     return perfectList
 
+# For Mersenne primes uses the Lucas-Lehmer Test:
+# Let n be an odd prime.
+# The Mersenne number M(n) = 2**n-1 is prime if and only if
+# S(n-2) = 0 (mod M(n)) where S(0) = 4 and S(k+1) = S(k)2-2.
+def isMPrime(p) -> bool:
+    s = 4
+    m = 2**p -1
+    for i in range(0, p-2):
+        s = (s**2 - 2) % m
+    return s == 0
 
+# For general non-special primes
 def isPrime(num) -> bool:
     if num == 2 or num == 3:
         return True
