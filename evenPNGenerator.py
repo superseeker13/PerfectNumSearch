@@ -1,10 +1,10 @@
 from csv import QUOTE_NONE, writer
-import concurrent
+# import concurrent # Need to use multiprocesses # Ask Bilitski
 import datetime
 
 
 def generateEvenPNums(num) -> list:
-    return generateEvenPNumsInRange(range(5, num+1))
+    return generateEvenPNumsInRange(range(0, num+1))
 
 
 def generateEvenPNumsInRange(rage) -> list:
@@ -12,9 +12,9 @@ def generateEvenPNumsInRange(rage) -> list:
     # Increases performace for large values
     append = perfectList.append
     for i in rage:
-        p = (2**i) - 1
         date = datetime.datetime.now()
-        if isPrime(p):
+        if isPrime(i) && isMPrime(i):
+            p = (2**i) - 1
             q = 2**(i-1)
             print('Prime check time: ', datetime.datetime.now() - date)
             print('i, p, q = ', i, p, q)
