@@ -2,8 +2,6 @@ from csv import QUOTE_NONE, writer
 # import concurrent # Need to use multiprocesses # Ask Bilitski
 import datetime
 
-matplotlib.use('agg')
-
 def generateEvenPNums(num) -> list:
     return generateEvenPNumsInRange(range(1, num+1))
 
@@ -38,7 +36,7 @@ def isMPrime(p) -> bool:
     return s == 0
 
 def fermatPrimeCheck(num):
-    return num % 4 == 1 and isPrime(num) or num == 2
+    return num % 4 == 1 and isPrimeTrival(num) or num == 2
 
 def oddPerfectCheck(num) -> bool:
     if num % 2 == 1 and num > 10**1500:

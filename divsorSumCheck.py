@@ -1,10 +1,9 @@
-import matplotlib.pyplot as plt
+import matplotlib
 from csv import QUOTE_NONE, writer
 
 # From stack overflow Rolf of Saxony
 # My machine uses TKAgg
 def main():
-    import matplotlib
     gui_env = ['TKAgg','GTKAgg','Qt4Agg','WXAgg']
     for gui in gui_env:
         try:
@@ -15,7 +14,7 @@ def main():
         except:
             continue
     print("Using:",matplotlib.get_backend())
-
+    
 def generateDivisorSum(num):
     print('Sum of even numbered divisors in range')
     return generateDivisorSumRange(range(0,num,2))
@@ -40,3 +39,5 @@ def listToCsv(myList, fileName):
     with open(fileName, 'w', newline='') as myfile:
         wr = writer(myfile, quoting=QUOTE_NONE, delimiter='\n', escapechar=' ')
         wr.writerow(myList)
+
+main()
