@@ -1,6 +1,10 @@
+import matplotlib
 from csv import QUOTE_NONE, writer
 # import concurrent # Need to use multiprocesses # Ask Bilitski
 import datetime
+
+gui_env = ['TKAgg','GTKAgg','Qt4Agg','WXAgg']
+matplotlib.use(gui_env[0],warn=False, force=True)
 
 def generateEvenPNums(num) -> list:
     return generateEvenPNumsInRange(range(1, num+1))
@@ -63,6 +67,10 @@ def isPrimeTrival(num) -> bool:
                 return False
     return True
 
+def scatterPlotList(_list):
+    coords = list(zip(*_list))        
+    matplotlib.pyplot.scatter(coords[0], coords[1])
+    matplotlib.pyplot.show()
 
 def listToCsv(myList, fileName='perfectNums.csv'):
     with open(fileName, 'w', newline='') as myfile:

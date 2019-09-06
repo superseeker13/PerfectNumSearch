@@ -1,9 +1,11 @@
 import matplotlib
 from csv import QUOTE_NONE, writer
 
-# From stack overflow Rolf of Saxony
-# My machine uses TKAgg
+
 def main():
+    
+    # Check for the proper gui
+    # From stack overflow Rolf of Saxony
     gui_env = ['TKAgg','GTKAgg','Qt4Agg','WXAgg']
     for gui in gui_env:
         try:
@@ -39,5 +41,10 @@ def listToCsv(myList, fileName):
     with open(fileName, 'w', newline='') as myfile:
         wr = writer(myfile, quoting=QUOTE_NONE, delimiter='\n', escapechar=' ')
         wr.writerow(myList)
+        
+def scatterPlotList(_list):
+    coords = list(zip(*_list))        
+    matplotlib.pyplot.scatter(coords[0], coords[1])
+    matplotlib.pyplot.show()
 
 main()
