@@ -2,6 +2,7 @@ from csv import QUOTE_NONE, writer
 # import concurrent # Need to use multiprocesses # Ask Bilitski
 import datetime
 
+matplotlib.use('agg')
 
 def generateEvenPNums(num) -> list:
     return generateEvenPNumsInRange(range(0, num+1))
@@ -14,7 +15,7 @@ def generateEvenPNumsInRange(rage) -> list:
     append = perfectList.append
     for i in rage:
         date = datetime.datetime.now()
-        if isPrime(i) and isMPrime(i):
+        if isPrimeTrival(i) and isMPrime(i):
             p = (2**i) - 1
             q = 2**(i-1)
             print('Prime check time: ', datetime.datetime.now() - date)
@@ -36,8 +37,22 @@ def isMPrime(p) -> bool:
         s = (s**2 - 2) % m
     return s == 0
 
+def fermatPrimeCheck(num):
+    return num % 4 == 1 and isPrime(num) or num == 2
+
+def oddPerfectCheck(num) -> bool:
+    if num % 2 == 1 and num > 10**1500:
+        if modOddCheck(num):
+            return fermatPrimeCheck(num)
+    return False
+
+def modOddCheck(num) -> bool:
+    return num % 105 != 0 and num % 12 == 1 or \
+           num % 468 == 117 or num % 324 == 81 \
+           or num % 36 == 9
+
 # For general non-special primes
-def isPrime(num) -> bool:
+def isPrimeTrival(num) -> bool:
     if num == 2 or num == 3:
         return True
     elif num % 2 == 0 or num % 3 == 0 or num <= 1:
