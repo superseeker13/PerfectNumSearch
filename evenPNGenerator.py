@@ -3,7 +3,7 @@ from csv import QUOTE_ALL, writer
 
 
 def generateEvenPNums(num) -> list:
-    return generateEvenPNumsInRange(range(5, num+1))
+    return generateEvenPNumsInRange(range(1, num+1))
 
 
 def generateEvenPNumsInRange(rage) -> list:
@@ -11,11 +11,10 @@ def generateEvenPNumsInRange(rage) -> list:
     # Increases performace for large values
     append = perfectList.append
     for i in rage:
-        print('i = ' + str(i))
         if isMPrime(i):
             p = (2**i) - 1
             q = 2**(i-1)
-            print('p, q = ', p, q)
+            print('i, p, q = ', i, p, q)
             print(str(p*q) + ' is a perfect number.')
             append(int(p*q))
     listToCsv(perfectList)
