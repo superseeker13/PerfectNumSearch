@@ -23,7 +23,7 @@ def generateEvenPNumsInRange(rage) -> list:
             print('Prime check time: ', datetime.datetime.now() - date)
             print('i, p, q = ', i, p, q)
             print(str(p*q) + ' is a perfect number.\n')
-            append(int(p*q))
+            append((i, int(p*q)))
     listToCsv(perfectList)
     print('Time to complete search:', datetime.datetime.now() - startTime)
     return perfectList
@@ -74,5 +74,5 @@ def scatterPlotList(_list):
 
 def listToCsv(myList, fileName='perfectNums.csv'):
     with open(fileName, 'w', newline='') as myfile:
-        wr = writer(myfile, quoting=QUOTE_NONE)
+        wr = writer(myfile, quoting=QUOTE_NONE, escapechar=' ')
         wr.writerow(myList)
