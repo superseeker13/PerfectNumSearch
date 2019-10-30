@@ -11,15 +11,33 @@ The search for an odd perfect number
 \begin{flushright}
 Edward C.\\
 \vspace{2 mm}
-Maria M.\\
+Maura M.\\
 \vspace{2 mm}
 Thomas R.\\
 \end{flushright}
 
 \paragraph*{Introduction}
 A non-negative integer n is perfect if it can be expressed as the sum of its proper divisors.  
-That is $$\text{n is perfect if }\sum_{}{}\{k \in \mathbb{Z}^+ : k \equiv 0 \mod n\} = n$$
-The study of such numbers dates back to at least the time of Euclid. In Book IX Proposition 36 his elements he details a elementary method for finding even perfect numbers know today as Euclid’s Perfect Number Theorem.
+That is $$\text{n is perfect if }\sum_{}{}\{k \in \mathbb{Z}^+ : k|n\} = n$$
+The study of such numbers dates back to at least the time of Euclid. In Book IX Proposition 36 of his Elements he details an elementary method for finding even perfect numbers known today as Euclid’s Perfect Number Theorem. \\
+\\
+The smallest positive perfect number is 6. The proper divisors of 6 are 1, 2, and 3. Notice, $$1+2+3=6$$
+The next perfect number is 28, whose proper divisors are 1, 2, 4, 7, and 14.
+$$1+2+4+7+14=28$$
+The next 6 perfect numbers are
+ $$\begin{array}{r}
+496\\
+8128\\
+33550336\\
+8589869056\\
+137438691328\\
+2305843008139952128
+\end{array}$$
+To date, there are 51 known perfect numbers, with the most recent one being found in 2018. It is 49,724,095 digits long.
+\paragraph*{Odd Perfect Numbers}
+All known perfect numbers are even. In 1638, René Descartes wrote a letter to Marin Mersenne in which he discussed the possible existence of an odd perfect number. Before this, most assumed that no odd perfect numbers existed, but none could prove it.$^{[3]}$ \\
+In 2012, Ochem and Rao showed there are no perfect numbers less than $10^{1500}$.$^{[1]}$
+
 \paragraph*{Conclusion}
 
 \paragraph*{Acknowledgment}
@@ -27,9 +45,11 @@ The study of such numbers dates back to at least the time of Euclid. In Book IX 
 
 \begin{thebibliography}{5}
 \bibitem{lowerbound} 
-\textit{Ochem, P. and Rao, M. "Odd Perfect Numbers Are Greater than 10\^(15000)."} Math. Comput. 81, 1869-1877, 2012.
+\textit{Ochem, P. and Rao, M. "Odd Perfect Numbers Are Greater than $10^{1500}$."} Math. Comput. 81, 1869-1877, 2012.
 \bibitem{elements}
 \textit{“Proposition 36.” Euclid's Elements, Book IX, Proposition 36,} https://mathcs.clarku.edu/~djoyce/java/elements/bookIX/propIX36.html.
+\bibitem{DicksonPN}
+\textit{Dickson, Leonard Eugene. History of the Theory of Numbers. Dover Publications, 2005.}
 \end{thebibliography}
 
 \end{document}
