@@ -1,26 +1,58 @@
-\documentclass[12pt]{article}
-\usepackage{amssymb, amsmath}
+\\\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath, amsthm}
 \renewcommand{\baselinestretch}{1.2}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+ 
+\newtheorem{theorem}{Theorem}
 
 \begin{document}
 \begin{center}
-\Large
-The search for an odd perfect number
+	\Large
+	The search for an odd perfect number
 \end{center}
 
 \begin{flushright}
-Edward C.\\
-\vspace{2 mm}
-Maura M.\\
-\vspace{2 mm}
-Thomas R.\\
+	Edward C.\\
+	\vspace{2 mm}
+	Maura M.\\
+	\vspace{2 mm}
+	Thomas R.\\
 \end{flushright}
 
 \paragraph*{Introduction}
-A non-negative integer n is perfect if it can be expressed as the sum of its proper divisors.  
-That is $$\text{n is perfect if }\sum_{}{}\{k \in \mathbb{Z}^+ : k|n\} = n$$
-The study of such numbers dates back to at least the time of Euclid. In Book IX Proposition 36 of his Elements he details an elementary method for finding even perfect numbers known today as Euclid’s Perfect Number Theorem. \\
-\\
+	A non-negative integer n is perfect if it can be expressed as the sum of its proper divisors. This gives following equation 
+	$$\text{n is perfect if } n = \sigma(n) = \sum_{}{}\{k \in \mathbb{Z}^+ : k|n\}$$  Where $\sigma_x (n)$ 
+	denotes the sum of positive divisors function.  The study of such numbers dates back to at least the 
+	time of Euclid. In Book IX Proposition 36 his elements he details a elementary method for finding even
+	perfect numbers.  This method was later labeled the Euclid–Euler theorem
+	after Euler proved that the method produced even perfect numbers.
+	
+	The following is a proof of the afterfore mentioned theorem.
+	
+	\begin{theorem}
+		An even natural number is perfect iff it of the form $$2^{p-1} (2^{p} - 1)$$
+	\end{theorem}
+	
+	\begin{proof}
+		$(\Rightarrow)$
+			Show an even natural number is perfect if it is of the form  $$2^{p-1} (2^{p} - 1).$$
+			Let $p \in \mathbb{N}$ s.t. $2^{p}-1$ is prime and $\sigma_x (n)$, as above, denote the sum of positive divisors function.
+			It follows that $$\sigma (2^{p-1}(2^{p}-1))=\sigma (2^{p-1})\sigma (2^{p}-1) \newline =>
+			\sigma (2^{p-1}(2^{p}-1))=\sigma (2^{p-1})\sigma (2^{p}-1)$$
+			Where $\sigma (2^{p-1}) = \sum{}{}(1 + 2 + 4 + ... + 2^{p-1})$ is a geometric series.\newline
+			Thus $\sigma (2^{p-1}) = 2^{p}-1)$ and $\sigma (2^{p}-1) = 2^{p}$ since $2^{p}-1$ is prime.
+		
+		$(\Leftarrow)$
+			Show if an even natural number is of the form  $$2^{p-1} (2^{p} - 1)$$ then it is perfect.
+			Suppose $n \in \mathbb{N}$ s.t. $$n = 2^{p-1} (2^{p} - 1)$$ for $p \in \mathbb{N}$
+			Show n is perfect.
+			Cosider the partial factorization of $n = 2^{x}y$ where y is odd.
+			If $2^{x}$ is perfect then $2^{x}y = \sigma (2^{x}y) = $
+ 
+	\end{proof}
+
+\paragraph*{History of Perfect Numbers}
 The smallest positive perfect number is 6. The proper divisors of 6 are 1, 2, and 3. Notice, $$1+2+3=6$$
 The next perfect number is 28, whose proper divisors are 1, 2, 4, 7, and 14.
 $$1+2+4+7+14=28$$
