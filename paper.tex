@@ -1,15 +1,14 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{beamer}
 \usepackage{amssymb, amsmath, amsthm}
 \renewcommand{\baselinestretch}{1.2}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
- 
-\newtheorem{theorem}{Theorem}
-
 \begin{document}
+%\newtheorem{theorem}{Theorem}
+\begin{frame}
 \begin{center}
 	\Large
-	The search for an odd perfect number
+	The Search for an Odd Perfect Number
 \end{center}
 
 \begin{flushright}
@@ -19,43 +18,55 @@
 	\vspace{2 mm}
 	Thomas R.\\
 \end{flushright}
-
-\paragraph*{Introduction}
+\end{frame}
+\begin{frame}
+\frametitle{Introduction}
 	A non-negative integer n is perfect if it can be expressed as the sum of its proper divisors. This gives following equation 
 	$$\text{n is perfect if } n = \sigma(n) = \sum_{}{}\{k \in \mathbb{Z}^+ : k|n\}$$  Where $\sigma_x (n)$ 
 	denotes the sum of positive divisors function.  The study of such numbers dates back to at least the 
 	time of Euclid. In Book IX Proposition 36 his elements he details a elementary method for finding even
 	perfect numbers.  This method was later labeled the Euclid–Euler theorem
 	after Euler proved that the method produced even perfect numbers.
-	
-	The following is a proof of the afterfore mentioned theorem.
-	
-	\begin{theorem}
-		An even natural number is perfect iff it of the form $$2^{p-1} (2^{p} - 1)$$
-	\end{theorem}
-	
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+		An even natural number is perfect if and only if it is of the form $$2^{p-1} (2^{p} - 1)$$
+	\end{theorem} 
+The following is a proof of the  aforementioned theorem.	
 	\begin{proof}
-		$(\Rightarrow)$
+	$(\Rightarrow)$
 			Show an even natural number is perfect if it is of the form  $$2^{p-1} (2^{p} - 1).$$
 			Let $p \in \mathbb{N}$ s.t. $2^{p}-1$ is prime and $\sigma_x (n)$, as above, denote the sum of positive divisors function.
-			It follows that $$\sigma (2^{p-1}(2^{p}-1))=\sigma (2^{p-1})\sigma (2^{p}-1) \newline =>
-			\sigma (2^{p-1}(2^{p}-1))=\sigma (2^{p-1})\sigma (2^{p}-1)$$
+	\end{proof}
+\end{frame}	
+
+\begin{frame}
+It follows that $$\sigma (2^{p-1}(2^{p}-1))=\sigma (2^{p-1})\sigma (2^{p}-1)$$ \\ 
+		$$ => \sigma (2^{p-1}(2^{p}-1))=\sigma (2^{p-1})\sigma (2^{p}-1)$$
 			Where $\sigma (2^{p-1}) = \sum{}{}(1 + 2 + 4 + ... + 2^{p-1})$ is a geometric series.\newline
 			Thus $\sigma (2^{p-1}) = 2^{p}-1)$ and $\sigma (2^{p}-1) = 2^{p}$ since $2^{p}-1$ is prime.
 		
-		$(\Leftarrow)$
+\end{frame}	
+\begin{frame}
+$(\Leftarrow)$
 			Show if an even natural number is of the form  $$2^{p-1} (2^{p} - 1)$$ then it is perfect.
 			Suppose $n \in \mathbb{N}$ s.t. $$n = 2^{p-1} (2^{p} - 1)$$ for $p \in \mathbb{N}$
 			Show n is perfect.
-			Cosider the partial factorization of $n = 2^{x}y$ where y is odd.
+			Consider the partial factorization of $n = 2^{x}y$ where y is odd.
 			If $2^{x}$ is perfect then $2^{x}y = \sigma (2^{x}y) = $
  
-	\end{proof}
+	
+\end{frame}	
 
-\paragraph*{History of Perfect Numbers}
+\begin{frame}
+\frametitle{History of Perfect Numbers}
 The smallest positive perfect number is 6. The proper divisors of 6 are 1, 2, and 3. Notice, $$1+2+3=6$$
 The next perfect number is 28, whose proper divisors are 1, 2, 4, 7, and 14.
 $$1+2+4+7+14=28$$
+\end{frame}	
+
+\begin{frame}
 The next 6 perfect numbers are
  $$\begin{array}{r}
 496\\
@@ -66,26 +77,44 @@ The next 6 perfect numbers are
 2305843008139952128
 \end{array}$$
 To date, there are 51 known perfect numbers, with the most recent one being found in 2018. It is 49,724,095 digits long.
-\paragraph*{Odd Perfect Numbers}
+\end{frame}		
+	
+\begin{frame}
+\title{Odd Perfect Numbers}
 All known perfect numbers are even. In 1638, René Descartes wrote a letter to Marin Mersenne in which he discussed the possible existence of an odd perfect number. Before this, most assumed that no odd perfect numbers existed, but none could prove it.$^{[3]}$ \\
 In 2012, Ochem and Rao showed there are no perfect numbers less than $10^{1500}$.$^{[1]}$ \\
+\end{frame}	
+	
+\begin{frame}
 In 1953, Jacques Touchard proved the following theorem:
 \begin{theorem}
 If an odd perfect number exists, it must be of the form $12k+1$ or $36k+1$. 
 \end{theorem} 
+\end{frame}
+
+\begin{frame}
 \begin{proof}
 For this proof, we are going to assume the lemma "If $n$ is an odd number of the form $6k-1$, then $n$ is not perfect" is true.  So let $n$ be an odd number. Since $n$ is not of the form $6k-1$, then it is either of the form $6k+1$ or $6k+3$. Thus either $n \equiv$ 1(mod 6) and $n \equiv$ 1(mod 4), or $n \equiv$ 3(mod 6) and $n \equiv$ 1(mod 4). Solving these two congruence equations, we find that $n$ must be of the form $12m+9$ or $12m+9$. Next, for $n=12m+9$ assume $3 \nmid m$. \\
 Then $\sigma (n) = \sigma (12m+9) = \sigma (3(4m+1))$ 
 \begin{flushright}
 $=\sigma (3) \sigma (4m+1) =(3+1) \sigma (4m+1) = 4\sigma(4m+1)$. 
 \end{flushright}
+\end{proof}	
+\end{frame}
+\begin{frame}
 In this case, $n \equiv$ 0(mod 4) and $2n \equiv$ 2(mod 4) cannot be perfect. \\
-$\therefore 3 \mid m$ and $n$ has the form $36m+9$.$^{[4]}$
-\end{proof} 
+$\therefore 3 \mid m$ and $n$ has the form $36m+9$.$^{[4]}$ 
+\end{frame}
 
-\paragraph*{Conclusion}
 
-\paragraph*{Acknowledgment}
+
+
+\begin{frame}
+\frametitle{Conclusion}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgment}
 
 
 \begin{thebibliography}{5}
@@ -99,4 +128,7 @@ $\therefore 3 \mid m$ and $n$ has the form $36m+9$.$^{[4]}$
 \textit{Holdener, Judy A. “A Theorem of Touchard on the Form of Odd Perfect Numbers.” The American Mathematical Monthly, vol. 109, no. 7, 2002, pp. 661–663. JSTOR, www.jstor.org/stable/3072433.}
 \end{thebibliography}
 
-\end{document}
+\end{frame}
+
+
+\end{document}	
